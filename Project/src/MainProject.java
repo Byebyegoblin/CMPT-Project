@@ -95,7 +95,6 @@ public class MainProject {
 			 
 		 System.out.println();
 		 }
-		in.close();
 	}
 	
 	public static void matrixMultiplication(int[][] matrix1, int[][] matrix2){
@@ -159,7 +158,6 @@ public class MainProject {
 			 
 		 System.out.println();
 		 }
-		in.close();
 	}
 	
 	public static void scalarMatrixMultiplication(int[][]matrix1, int number){
@@ -181,9 +179,40 @@ public class MainProject {
 		}
 	}
 
+	public static void matrixTranspose(){
+		int m, n, c, d;
+		 
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the number of rows and columns of matrix");
+		m = in.nextInt();
+		n = in.nextInt();
+		 
+		int matrix[][] = new int[m][n];
+		 
+		System.out.println("Enter the elements of matrix");
+		 
+		for ( c = 0 ; c < m ; c++ )
+			for ( d = 0 ; d < n ; d++ )
+				matrix[c][d] = in.nextInt();
+		 
+		int transpose[][] = new int[n][m];
+		 
+		for ( c = 0 ; c < m ; c++ ){
+			for ( d = 0 ; d < n ; d++ )               
+				transpose[d][c] = matrix[c][d];
+		    }
+		 
+		System.out.println("Transpose of entered matrix:-");
+		 
+		for ( c = 0 ; c < n ; c++ ) {
+			for ( d = 0 ; d < m ; d++ )
+				System.out.print(transpose[c][d]+"\t");
+		 
+			System.out.print("\n");
+		    }
+		}
 	
 	public static void main(String[] args){
-
 		
 		int array1[][] = { {1,2,3}, {2,3,4}, {4,5,6}};
 		int array2[][] = { {1,2,3}, {2,3,4}, {4,5,6}};
@@ -201,7 +230,8 @@ public class MainProject {
 			for (int index1 = 0; index1 < mtx[index].length; index1++)
 				System.out.print(mtx[index][index1] + ",");
 		}
-
+		System.out.println();
+		matrixTranspose();
 		matrixAddition();
 		matrixSubtraction();
 		scalarMatrixMultiplication(array1, 2);
