@@ -162,6 +162,26 @@ public class MainProject {
 		in.close();
 	}
 	
+	public static void scalarMatrixMultiplication(int[][]matrix1, int number){
+		int n = matrix1[0].length;
+		int m = matrix1.length;
+		 
+		int ans[][] = new int[m][n];
+		
+		for(int i = 0;i < m;i++){
+			for(int j = 0;j < n;j++){
+				ans[i][j] += matrix1[i][j] * number;
+			}
+		}
+			
+		for (int index = 0; index < ans.length; index++){
+			System.out.println();
+			for (int index1 = 0; index1 < ans[index].length; index1++)
+				System.out.print(ans[index][index1] + ",");
+		}
+	}
+
+	
 	public static void main(String[] args){
 
 		
@@ -184,6 +204,7 @@ public class MainProject {
 
 		matrixAddition();
 		matrixSubtraction();
+		scalarMatrixMultiplication(array1, 2);
 	}
 }
 
